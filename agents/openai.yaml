@@ -1,6 +1,6 @@
 interface:
   display_name: "PromptGap"
-  short_description: "按需查看生成过程，定位需求到结果的偏差"
+  short_description: "追溯 AI 生图偏差，找到调整方向。"
   default_prompt: "使用 $prompt-gap，显示当前项目可以执行的数字选项。"
 policy:
   allow_implicit_invocation: false

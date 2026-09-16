@@ -1,1 +1,0 @@
-Edit the provided image so that it contains exactly two red circles on a white background. Remove the extra circle. Keep the remaining circles red. Do not add text or any other objects.
