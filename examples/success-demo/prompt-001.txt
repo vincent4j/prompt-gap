@@ -1,0 +1,1 @@
+Create an image with a plain white background containing exactly two red circles. Do not include text or any other objects.

@@ -1,0 +1,57 @@
+{
+  "notice": "Synthetic payloads only; fixture:// resources and model names are not real services.",
+  "cases": [
+    {
+      "case_id": "flat-sync",
+      "capture_mode": "synthetic",
+      "request_snapshot": {
+        "model": "fixture-model-a",
+        "prompt": "白底恰好两个红圆。",
+        "image_urls": ["fixture://input-1", "fixture://input-2"],
+        "vendor_extra": {"future_option": true}
+      },
+      "response_snapshot": {
+        "data": [{"url": "fixture://output-1"}],
+        "usage": null
+      },
+      "bindings": {
+        "prompt_pointers": ["/prompt"],
+        "input_pointers": ["/image_urls/0", "/image_urls/1"],
+        "output_pointers": ["/data/0/url"],
+        "requested_model_pointer": "/model",
+        "external_job_pointer": null
+      },
+      "expected_prompt": "白底恰好两个红圆。",
+      "expected_inputs": ["fixture://input-1", "fixture://input-2"],
+      "expected_outputs": ["fixture://output-1"],
+      "expected_model": "fixture-model-a",
+      "expected_job": null
+    },
+    {
+      "case_id": "nested-async",
+      "capture_mode": "synthetic",
+      "request_snapshot": {
+        "engine": {"id": "fixture-model-b"},
+        "instruction": {"text": "白底恰好两个红圆。"},
+        "assets": [{"source": "fixture://input-2"}, {"source": "fixture://input-1"}],
+        "options": {"custom/field": {"~future": "不应丢弃"}}
+      },
+      "response_snapshot": {
+        "ticket": "fixture-job-7",
+        "state": "QUEUED"
+      },
+      "bindings": {
+        "prompt_pointers": ["/instruction/text"],
+        "input_pointers": ["/assets/0/source", "/assets/1/source"],
+        "output_pointers": [],
+        "requested_model_pointer": "/engine/id",
+        "external_job_pointer": "/ticket"
+      },
+      "expected_prompt": "白底恰好两个红圆。",
+      "expected_inputs": ["fixture://input-2", "fixture://input-1"],
+      "expected_outputs": [],
+      "expected_model": "fixture-model-b",
+      "expected_job": "fixture-job-7"
+    }
+  ]
+}

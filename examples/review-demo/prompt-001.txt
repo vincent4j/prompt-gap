@@ -1,0 +1,1 @@
+Create a white image containing exactly two blue circles. No text, no other objects.

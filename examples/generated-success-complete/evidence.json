@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "review_id": "f1974b7c497646dfb87c87466f38086c",
+  "task_id": "e769e5f0eb204af2906f0528e54ff35e",
+  "created_at": "2026-09-16T15:03:41.968134+00:00",
+  "task": {
+    "schema_version": 1,
+    "task_id": "e769e5f0eb204af2906f0528e54ff35e",
+    "title": "成功生成全过程（合成演示）",
+    "conversation_ref": null,
+    "created_at": "2026-09-16T15:03:41.905954+00:00",
+    "updated_at": "2026-09-16T15:03:41.960832+00:00"
+  },
+  "attempts": [
+    {
+      "attempt_id": "d5bd6d39568847aaa865792ccd31c501",
+      "requirement": {
+        "task_id": "e769e5f0eb204af2906f0528e54ff35e",
+        "user_text": "画一张白底图，只有两个红色圆形，不要文字。",
+        "interpretation": "生成白色背景上的两个红色圆形，不添加文字或其他物体。圆的大小和间距没有被指定，可自行安排。",
+        "source": "M1 synthetic fixture",
+        "schema_version": 1,
+        "version": "001",
+        "recorded_at": "2026-09-16T15:03:41.906894+00:00",
+        "confirmation": "not_explicitly_confirmed",
+        "assumptions": []
+      },
+      "request": {
+        "task_id": "e769e5f0eb204af2906f0528e54ff35e",
+        "requirement_version": "001",
+        "transport": "codex_builtin",
+        "task_type": "text_to_image",
+        "capture_mode": "synthetic",
+        "capture_scope": "tool_boundary",
+        "execution_note": "一次生成，圆的大小和间距由 Agent 自选；此处仅回放合成资料",
+        "request_snapshot": {
+          "prompt": "Create an image with a plain white background containing exactly two red circles. Do not include text or any other objects."
+        },
+        "bindings": {
+          "prompt_pointers": [
+            "/prompt"
+          ]
+        },
+        "inputs": [],
+        "missing_evidence": [
+          "Synthetic example: no actual tool response, model version, elapsed time, cost or user approval",
+          "Requested model not visible or not bound"
+        ],
+        "schema_version": 1,
+        "attempt_id": "d5bd6d39568847aaa865792ccd31c501",
+        "recorded_at": "2026-09-16T15:03:41.907824+00:00",
+        "requested_model": null,
+        "parent_attempt_id": null
+      },
+      "result": {
+        "task_id": "e769e5f0eb204af2906f0528e54ff35e",
+        "attempt_id": "d5bd6d39568847aaa865792ccd31c501",
+        "generation_status": "succeeded",
+        "outputs": [
+          {
+            "path": "media/de81889f5d0b75707de8649cfa3f41a3d814df8bc22e56773bfc614bf20080e9",
+            "role": "synthetic_fixture",
+            "source_path": "/Users/vincent4j/Tools/Source/prompt-gap/examples/success-demo/output-001.svg",
+            "asset_id": "de81889f5d0b75707de8649cfa3f41a3d814df8bc22e56773bfc614bf20080e9",
+            "sha256": "de81889f5d0b75707de8649cfa3f41a3d814df8bc22e56773bfc614bf20080e9",
+            "available": true,
+            "size_bytes": 237,
+            "media_type": "image/svg+xml",
+            "width": null,
+            "height": null,
+            "format": null,
+            "icc": "unknown",
+            "output_id": "1"
+          }
+        ],
+        "missing_evidence": [
+          "Synthetic example: no actual tool response, model version, elapsed time, cost or user approval",
+          "Usage not provided",
+          "Cost not provided"
+        ],
+        "schema_version": 1,
+        "archive_status": "complete",
+        "completion_fingerprint": "28322a41128bbd0adefb9531da59ab9abc9450575ceae78020b23cf9d55879f1",
+        "started_at": "2026-09-16T15:03:41.907824+00:00",
+        "ended_at": "2026-09-16T15:03:41.959378+00:00",
+        "usage": null,
+        "cost": null,
+        "returned_model": null,
+        "provider_request_id": null,
+        "provider_job_id": null,
+        "error": null,
+        "capture_mode": "synthetic"
+      },
+      "observations": [
+        {
+          "task_id": "e769e5f0eb204af2906f0528e54ff35e",
+          "attempt_id": "d5bd6d39568847aaa865792ccd31c501",
+          "source": "synthetic_fixture",
+          "content": "白底、两个红圆，没有文字和其他物体，与本次明确要求一致。",
+          "event_id": "904fc806ccc54802a18e4c7fcc9cf831",
+          "recorded_at": "2026-09-16T15:03:41.960590+00:00"
+        }
+      ],
+      "events": [],
+      "feedback": [],
+      "processing": [],
+      "integrity_issues": [],
+      "inputs": [],
+      "outputs": [
+        {
+          "path": "media/de81889f5d0b75707de8649cfa3f41a3d814df8bc22e56773bfc614bf20080e9",
+          "role": "synthetic_fixture",
+          "source_path": "/Users/vincent4j/Tools/Source/prompt-gap/examples/success-demo/output-001.svg",
+          "asset_id": "de81889f5d0b75707de8649cfa3f41a3d814df8bc22e56773bfc614bf20080e9",
+          "sha256": "de81889f5d0b75707de8649cfa3f41a3d814df8bc22e56773bfc614bf20080e9",
+          "available": true,
+          "size_bytes": 237,
+          "media_type": "image/svg+xml",
+          "width": null,
+          "height": null,
+          "format": null,
+          "icc": "unknown",
+          "output_id": "1",
+          "review_path": "assets/de81889f5d0b75707de8649cfa3f41a3d814df8bc22e56773bfc614bf20080e9.svg"
+        }
+      ]
+    }
+  ],
+  "manifest": {
+    "tasks/e769e5f0eb204af2906f0528e54ff35e/task.json": "881ea435f75d2898faf9e971a15a9eb99060451321bf0cd2f1440f7610671438",
+    "tasks/e769e5f0eb204af2906f0528e54ff35e/feedback.jsonl": null,
+    "tasks/e769e5f0eb204af2906f0528e54ff35e/processing.jsonl": null,
+    "tasks/e769e5f0eb204af2906f0528e54ff35e/attempts/d5bd6d39568847aaa865792ccd31c501/request.json": "b579961fea90b8cddc76a22a210b14aee82e88f4954e08e14fb177b8790abbbd",
+    "tasks/e769e5f0eb204af2906f0528e54ff35e/requirements/001.json": "4cf0919aabeb27d329fb2d69cc3f6e3299456b186be7b75d73acc706ca3bf212",
+    "tasks/e769e5f0eb204af2906f0528e54ff35e/attempts/d5bd6d39568847aaa865792ccd31c501/result.json": "0d65679a8b8a0b185e87ef37ad491b06cd9ee3c32bf2ffe3e40d426658594fac",
+    "tasks/e769e5f0eb204af2906f0528e54ff35e/attempts/d5bd6d39568847aaa865792ccd31c501/integrity.json": "e527d36852e7eb65bddbb93702e6617b2efdb6c318327033bf3ecd004b12a8b9",
+    "tasks/e769e5f0eb204af2906f0528e54ff35e/attempts/d5bd6d39568847aaa865792ccd31c501/prompt.txt": "80f273270bbd12c5594fe6691deadc08fc799f1ca085bafab7005c885da73896",
+    "tasks/e769e5f0eb204af2906f0528e54ff35e/attempts/d5bd6d39568847aaa865792ccd31c501/observations.jsonl": "ece81fb6670089a3cc3cfa10ff19f99223caf93d985744e6c79c680119a5a7b4",
+    "tasks/e769e5f0eb204af2906f0528e54ff35e/attempts/d5bd6d39568847aaa865792ccd31c501/events.jsonl": null,
+    "media/de81889f5d0b75707de8649cfa3f41a3d814df8bc22e56773bfc614bf20080e9": "de81889f5d0b75707de8649cfa3f41a3d814df8bc22e56773bfc614bf20080e9"
+  },
+  "gaps": [],
+  "scope": "Selected attempts only; unrecorded calls cannot be detected"
+}
