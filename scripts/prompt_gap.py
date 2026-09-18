@@ -181,7 +181,8 @@ class Recorder:
         # Project identity gives independent processes one lock even before enabling.
         parent = Path(tempfile.gettempdir()) / ("prompt-gap-" + str(os.getuid() if hasattr(os, "getuid") else "local"))
         require(not parent.is_symlink(), "Unsafe lock directory")
-        parent.mkdir(mode=0o700, exist_ok=True)
+        if not parent.exists():
+            parent.mkdir(mode=0o700, exist_ok=True)
         path = parent / (hashlib.sha256(str(self.project).encode()).hexdigest() + ".lock")
         require(not path.is_symlink(), "Unsafe lock file")
         with path.open("a+b") as stream:
@@ -295,7 +296,8 @@ class Recorder:
         require(bool(data.get("user_text")) and bool(data.get("interpretation")), "User text and contemporary interpretation are required")
         task_id = data["task_id"]
         path = self.safe(self.task_path(task_id), "requirements")
-        path.mkdir(exist_ok=True)
+        if not path.exists():
+            path.mkdir(exist_ok=True)
         version = str(len(list(path.glob("*.json"))) + 1).zfill(3)
         require(not (path / (version + ".json")).exists(), "Requirement version conflict")
         record = dict(data, schema_version=VERSION, version=version, recorded_at=now())
@@ -368,7 +370,8 @@ class Recorder:
         record = {**data, "schema_version": VERSION, "attempt_id": attempt_id, "recorded_at": now(), "inputs": inputs, "requested_model": requested_model, "missing_evidence": gaps}
         record.setdefault("parent_attempt_id", None)
         # Prepare in an isolated directory so an interrupted begin cannot look complete.
-        path.parent.mkdir(exist_ok=True)
+        if not path.parent.exists():
+            path.parent.mkdir(exist_ok=True)
         staging = Path(tempfile.mkdtemp(prefix=".begin-", dir=path.parent))
         write_json(staging / "request.json", record)
         atomic(staging / "prompt.txt", "\n\n".join(prompts))
@@ -516,7 +519,8 @@ class Recorder:
         # Menus may exist before enabling; keep transient snapshots outside the project.
         parent = Path(tempfile.gettempdir()) / ("prompt-gap-menus-" + str(os.getuid() if hasattr(os, "getuid") else "local"))
         require(not parent.is_symlink(), "Unsafe menu directory")
-        parent.mkdir(mode=0o700, exist_ok=True)
+        if not parent.exists():
+            parent.mkdir(mode=0o700, exist_ok=True)
         write_json(parent / (menu_id + ".json"), {"project": str(self.project), "state": state, "options": options})
         return {"menu_id": menu_id, "project_state": state, "options": options, "notice": "按需审核，不自动重新生图或调研能力。"}
 

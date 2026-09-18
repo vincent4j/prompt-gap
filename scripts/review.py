@@ -122,7 +122,8 @@ def prepare(r, data):
                         ext = {"image/png": "png", "image/jpeg": "jpg", "image/webp": "webp", "image/gif": "gif", "image/svg+xml": "svg"}.get(asset.get("media_type"), "bin")
                         name = "assets/" + asset["sha256"] + "." + ext
                         target = draft / name
-                        target.parent.mkdir(exist_ok=True)
+                        if not target.parent.exists():
+                            target.parent.mkdir(exist_ok=True)
                         if not target.exists():
                             shutil.copyfile(source, target)
                         item["review_path"] = name
